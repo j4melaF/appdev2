@@ -1,5 +1,5 @@
 import { View, StyleSheet, Text, Image, TextInput, TouchableOpacity } from 'react-native'
-
+import { Ionicons } from '@expo/vector-icons';
 
 export default function Login() {
   return (
@@ -66,7 +66,7 @@ export default function Login() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F3F3F3',
+    backgroundColor: '#FFF2EF',
     paddingHorizontal: 20
   },
 
@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
 
   subtitle: {
     fontSize: 14,
+    fontWeight: '500',
     color: '#777',
     marginTop: 5
   },
@@ -119,6 +120,7 @@ const styles = StyleSheet.create({
 
   input: {
     height: 50,
+    fontWeight: '500',
     flex: 1
   },
 
@@ -126,7 +128,8 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     marginTop: 5,
     marginRight: 10,
-    color: 'blue'
+    color: 'blue',
+    fontWeight: '600'
   },
 
   footer: {
@@ -138,7 +141,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     width: '100%',
     height: 50,
-    backgroundColor: 'black',
+    backgroundColor: '#5D688A',
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center'
@@ -146,8 +149,8 @@ const styles = StyleSheet.create({
 
   buttonText: {
     color: 'white',
-    fontWeight: '600',
-    fontSize: 16
+    fontWeight: 'bold',
+    fontSize: 20
   },
 
   signup: {
