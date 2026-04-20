@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
 import {
-  NavigationContainer,
+  createStaticNavigation,
   useNavigation,
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Button } from '@react-navigation/elements';
 
 function HomeScreen() {
   const navigation = useNavigation();
@@ -12,31 +13,37 @@ function HomeScreen() {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
-      <Button title="Go to Details" onPress={() => navigation.navigate('Details')} />
+      <Button onPress={() => navigation.navigate('Details')}>
+        Go to Details
+      </Button>
     </View>
   );
 }
 
 function DetailsScreen() {
+  const navigation = useNavigation();
+
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Details Screen</Text>
+      <Button onPress={() => navigation.push('Details')}>
+        Go to Details... again
+      </Button>
     </View>
   );
 }
 
-const Stack = createNativeStackNavigator();
+const RootStack = createNativeStackNavigator({
+  initialRouteName: 'Home',
+  screens: {
+    Home: HomeScreen,
+    Details: DetailsScreen,
+  },
+});
+
+const Navigation = createStaticNavigation(RootStack);
 
 export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{ headerStyle: { backgroundColor: 'tomato' } }}
-      >
-        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Overview' }} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+  return <Navigation />;
 }
+
