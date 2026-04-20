@@ -7,6 +7,7 @@ import {
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Button } from '@react-navigation/elements';
 
+
 function HomeScreen() {
   const navigation = useNavigation();
 
@@ -28,6 +29,11 @@ function DetailsScreen() {
       <Text>Details Screen</Text>
       <Button onPress={() => navigation.push('Details')}>
         Go to Details... again
+      </Button>
+      <Button onPress={() => navigation.goBack()}>Go back</Button>
+      <Button onPress={() => navigation.popTo('Home')}>Go to Home</Button>
+      <Button onPress={() => navigation.popToTop()}>
+        Go back to first screen in stack
       </Button>
     </View>
   );
