@@ -16,10 +16,13 @@ function HomeScreen() {
       <Button
         onPress={() => {
           /* 1. Navigate to the Details route with params */
-          navigation.navigate('Details', {
-            itemId: 86,
-            otherParam: 'anything you want here',
-          });
+          navigation.navigate(
+            Details: {
+              screen: DetailsScreen,
+              initialParams: { itemId: 42 },
+            },
+
+          );
         }}
       >
         Go to Details
