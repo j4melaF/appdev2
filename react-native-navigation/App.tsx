@@ -7,8 +7,11 @@ import {
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Button } from '@react-navigation/elements';
+import { RootTabParamList, MoreStackParamList } from './types';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { RouteProp } from '@react-navigation/native';
 
-function SettingsScreen({ route }) {
+function SettingsScreen({ route }: { route: RouteProp<MoreStackParamList, 'Settings'> }) {
   const { userId } = route.params;
 
   return (
@@ -20,7 +23,7 @@ function SettingsScreen({ route }) {
 }
 
 function HomeScreen() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<BottomTabNavigationProp<RootTabParamList>>();
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
